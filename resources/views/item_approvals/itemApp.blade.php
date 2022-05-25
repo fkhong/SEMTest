@@ -6,7 +6,6 @@
 
     <style>
         /*body*/
-        /*body 2*/
         .center {
             margin: auto;
             width: auto;
