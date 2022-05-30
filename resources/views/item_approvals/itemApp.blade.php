@@ -136,12 +136,15 @@
                         <td>
                             <p id="total" name="total"><?php echo $b; ?></p>
                         </td>
-                        <td></td>
+                        <td>
+                            <!-- SEM PLAN 4 - Adding Cancel button -->
+                            <input type="submit" class="btn btn-success col-md-4 text-center" value="SAVE">
+                        </td>
                     </tr>
                 </table>
 
                 <br>
-                <input type="submit" class="btn btn-success col-md-12 text-center" value="SAVE">
+                <a class="btn btn-danger col-md-12 text-center" href="/item_approvals/userList"> CANCEL</a>
                 <br><br><br>
                 </form>
             </div>

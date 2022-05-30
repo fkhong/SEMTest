@@ -24,7 +24,7 @@ use Illuminate\Contracts\Session\Session;
 use App\Models\Request_detail;
 use App\Models\Vendor;
 use Carbon\Carbon;
-
+use Illuminate\Support\Facades\Input;
 
 
 
@@ -184,9 +184,18 @@ class Controller extends BaseController
         $users = DB::table('users')
             ->join('requests', 'users.staff_id', '=', 'requests.staff_id')
             ->select('users.*', 'requests.req_id', 'requests.created_at')
-            //->where('requests.req_status', '=', 'Not approved')
             ->get();
         return view('item_approvals.userlist', ['staffinfo' => $users]);
+    }
+
+    // SEM PLAN 2 - Adding Delete button
+    public function listDelete($req_id)
+    {
+        $request = DB::table('requests')
+        ->where('req_id', '=', $req_id)
+        ->delete();
+
+        return redirect('/item_approvals/userList');
     }
 
 
@@ -234,6 +243,22 @@ class Controller extends BaseController
 
 
         return redirect('/item_approvals/userList');
+    }
+
+    // SEM PLAN 1 - Adding Searching Bar
+    public function search(){
+        $q = Input::get('q');
+        dd($q);
+        /*$users = DB::table('users')
+        ->where( 'staff_id', 'LIKE', '%' . $q . '%' )
+        ->orWhere ( 'name', 'LIKE', '%' . $q . '%' )
+        ->orWhere ( 'requests.req_id', 'LIKE', '%' . $q . '%' )
+        ->orWhere ( 'requests.created_at', 'LIKE', '%' . $q . '%' )
+        ->get ();
+    if (count ( $users ) > 0)
+        return view ( 'item_approvals.userlist' )->withDetails ( $users )->withQuery ( $q );
+    else
+        return view ( 'item_approvals.userlist' )->withMessage ( 'No Details found. Try to search again !' );*/
     }
 
     //MANAGE STOCK LIST CONTROLLER----------------------------------------------------------------------------
