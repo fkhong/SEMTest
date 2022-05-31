@@ -32,10 +32,15 @@
 
             </div>
             <div class="col-md-3">
+            
                 <h3>Item ID Search</h3>
+                <tr>
+                        <td style="border: none"><input type="button" href="/request/sort" name="sort" value="Sort by Brand"></td>
+                 </tr>
                 <select class="js-example-basic-single" id="item_id[]" name="item_id[]" required>
                     @foreach ($items as $item)
                         <option value="{{ $item->item_id }}">
+                            [{{ $item->item_brand }}]
                             {{ $item->item_id }}-{{ $item->item_name }}</option>
                     @endforeach
                 </select>

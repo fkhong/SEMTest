@@ -393,9 +393,11 @@ class Controller extends BaseController
     }
 
     //REQUEST ITEM CONTROLLER-------------------------------------------
+    
+
     public function requestCreate()
     {
-        $data = Item::all();
+        $data = Item::select('*')->orderBy('item_brand', 'asc')->get();
         return view('requests.requestCreate', ['items' => $data]);
     }
 
