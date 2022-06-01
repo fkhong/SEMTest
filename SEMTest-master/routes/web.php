@@ -51,6 +51,7 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 
     // ITEM APPROVAL ---------------------------------------------------------------------------
     Route::get('/item_approvals/userList', 'App\Http\Controllers\Controller@approveIndex');
+    Route::get('/item_approvals/delete/{reqid}', 'App\Http\Controllers\Controller@listDelete');
     Route::get('/item_approvals/request/{id}', 'App\Http\Controllers\Controller@approveShow');
     Route::get('/item_approvals/req/{reqid}/{id}', 'App\Http\Controllers\Controller@approveDelete');
     Route::post('/item_approvals/userList/{id}', 'App\Http\Controllers\Controller@approveItem');

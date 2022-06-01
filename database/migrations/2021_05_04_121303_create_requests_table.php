@@ -32,7 +32,18 @@ class CreateRequestsTable extends Migration
             ['req_id' => 'RQ003', 'staff_id' => 'ST003', 'created_at' => '2021-02-08 15:43:10', 'updated_at' => '2021-02-09 07:08:04', 'req_status' => 'Approved'],
             ['req_id' => 'RQ004', 'staff_id' => 'ST004', 'created_at' => '2021-02-10 15:25:18', 'updated_at' => '2021-02-11 07:15:23', 'req_status' => 'Approved'],
             ['req_id' => 'RQ005', 'staff_id' => 'ST005', 'created_at' => '2021-02-11 14:25:45', 'updated_at' => '2021-02-12 07:05:34', 'req_status' => 'Approved'],
-            ['req_id' => 'RQ006', 'staff_id' => 'ST001', 'created_at' => '2021-02-12 15:25:18', 'updated_at' => '2021-02-18 07:10:32', 'req_status' => 'Approved']
+
+            ['req_id' => 'RQ006', 'staff_id' => 'ST005', 'created_at' => '2021-02-11 14:25:45', 'updated_at' => '2021-02-12 07:05:34', 'req_status' => 'Approved'],
+            ['req_id' => 'RQ007', 'staff_id' => 'ST004', 'created_at' => '2021-02-10 15:25:18', 'updated_at' => '2021-02-11 07:15:23', 'req_status' => 'Approved'],
+            ['req_id' => 'RQ008', 'staff_id' => 'ST003', 'created_at' => '2021-02-11 14:25:45', 'updated_at' => '2021-02-12 07:05:34', 'req_status' => 'Approved'],
+            ['req_id' => 'RQ009', 'staff_id' => 'ST004', 'created_at' => '2021-02-06 15:25:43', 'updated_at' => '2021-02-07 07:20:11', 'req_status' => 'Approved'],
+            ['req_id' => 'RQ010', 'staff_id' => 'ST001', 'created_at' => '2021-02-08 13:30:24', 'updated_at' => '2021-02-09 07:07:34', 'req_status' => 'Not Approved'],
+
+            ['req_id' => 'RQ011', 'staff_id' => 'ST001', 'created_at' => '2021-02-18 14:25:45', 'updated_at' => '2021-02-12 07:05:34', 'req_status' => 'Approved'],
+            ['req_id' => 'RQ012', 'staff_id' => 'ST002', 'created_at' => '2021-02-11 14:25:45', 'updated_at' => '2021-02-12 07:05:34', 'req_status' => 'Approved'],
+            ['req_id' => 'RQ013', 'staff_id' => 'ST003', 'created_at' => '2021-02-08 14:25:45', 'updated_at' => '2021-02-12 07:05:34', 'req_status' => 'Approved'],
+            ['req_id' => 'RQ014', 'staff_id' => 'ST004', 'created_at' => '2021-02-11 14:25:45', 'updated_at' => '2021-02-12 07:05:34', 'req_status' => 'Approved'],
+            ['req_id' => 'RQ015', 'staff_id' => 'ST001', 'created_at' => '2021-02-22 15:25:18', 'updated_at' => '2021-02-18 07:10:32', 'req_status' => 'Not Approved']
         ]);
     }
 
