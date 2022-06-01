@@ -52,7 +52,10 @@ class Controller extends BaseController
     //MANAGE NEW STOCK ORDER CONTROLLER----------------------------------------------------------------------------
     public function mngStockIndex() //When Admin Access Manage New Stock Module
     {
-        return view('mng_Stock.Order.orderIndex');
+        $results = DB::table('items')->join('vendors', 'items.vendor_id', '=', 'vendors.vendor_id')->select('items.*', 'vendors.vendor_name', 'vendors.vendor_company')->get();
+        $a = 1;
+
+        return view('mng_Stock.Order.orderIndex', ['datas' => $results, 'a' => $a]);
     }
 
     public function mngStockitemList() //View Item List
