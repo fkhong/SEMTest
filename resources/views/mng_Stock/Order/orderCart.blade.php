@@ -93,10 +93,6 @@
                 </table>
             </div>
             <div class="container pt-3">
-                <div class="container" style="">
-                    <a href="/mngNewStck/itemList"><button class="left btn btn-primary" type="button"
-                            style="height:40px; width:130px;font:16px black;">Add Item</button></a>
-                </div>
                 <div class="container col-md-6" style="float:right;;">
                     <div class="right" style=" margin-bottom:10px; font-size:15px;">
                         <label for="totalPrice">Overall Total Price: RM</label>

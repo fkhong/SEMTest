@@ -52,7 +52,10 @@ class Controller extends BaseController
     //MANAGE NEW STOCK ORDER CONTROLLER----------------------------------------------------------------------------
     public function mngStockIndex() //When Admin Access Manage New Stock Module
     {
-        return view('mng_Stock.Order.orderIndex');
+        $results = DB::table('items')->join('vendors', 'items.vendor_id', '=', 'vendors.vendor_id')->select('items.*', 'vendors.vendor_name', 'vendors.vendor_company')->get();
+        $a = 1;
+
+        return view('mng_Stock.Order.orderIndex', ['datas' => $results, 'a' => $a]);
     }
 
     public function mngStockitemList() //View Item List
@@ -245,35 +248,20 @@ class Controller extends BaseController
         return redirect('/item_approvals/userList');
     }
 
-    // SEM PLAN 1 - Adding Searching Bar
-    public function search(){
-        $q = Input::get('q');
-        dd($q);
-        /*$users = DB::table('users')
-        ->where( 'staff_id', 'LIKE', '%' . $q . '%' )
-        ->orWhere ( 'name', 'LIKE', '%' . $q . '%' )
-        ->orWhere ( 'requests.req_id', 'LIKE', '%' . $q . '%' )
-        ->orWhere ( 'requests.created_at', 'LIKE', '%' . $q . '%' )
-        ->get ();
-    if (count ( $users ) > 0)
-        return view ( 'item_approvals.userlist' )->withDetails ( $users )->withQuery ( $q );
-    else
-        return view ( 'item_approvals.userlist' )->withMessage ( 'No Details found. Try to search again !' );*/
-    }
 
     //MANAGE STOCK LIST CONTROLLER----------------------------------------------------------------------------
     public function stockIndex()
     {
         //Query all item data.
-        $data = Item::all();    
-        
+        $data = Item::all();
+
         return view('stocks.stockIndex', ['items' => $data]);
     }
-    
+
     public function stockIndexTypePen()
     {
         //Query all item data.
-        $data = Item::all()    
+        $data = Item::all()
         -> where ('item_type','pen');
 
         return view('stocks.stockIndexTypePen', ['items' => $data]);
@@ -282,7 +270,7 @@ class Controller extends BaseController
     public function stockIndexTypePapers()
     {
         //Query all item data.
-        $data = Item::all()    
+        $data = Item::all()
         -> where ('item_type','paper');
 
         return view('stocks.stockIndexTypePapers', ['items' => $data]);
@@ -291,7 +279,7 @@ class Controller extends BaseController
     public function stockIndexTypeEtc()
     {
         //Query all item data.
-        $data = Item::all()    
+        $data = Item::all()
         -> where ('item_type','etc');
 
         return view('stocks.stockIndexTypeEtc', ['items' => $data]);
@@ -302,7 +290,7 @@ class Controller extends BaseController
     {
         //Find row with $item_id from database
         $items = Item::findOrFail($item_id);
-        
+
         //$items = Item::where($item_type,'pen');
         //->with ('stocks',$itemType)
         //Query all vendor data
@@ -393,7 +381,7 @@ class Controller extends BaseController
     }
 
     //REQUEST ITEM CONTROLLER-------------------------------------------
-    
+
 
     public function requestCreate()
     {
