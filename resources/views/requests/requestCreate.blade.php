@@ -35,7 +35,11 @@
             
                 <h3>Item ID Search</h3>
                 <tr>
-                        <td style="border: none"><input type="button" href="/request/sort" name="sort" value="Sort by Brand"></td>
+                        <td style="border: none;"> <button type="button" class="btn btn-warning mb-3">
+                        <a style="color:black; text-decoration: none;" href="/request/sort">Sort by Brand</a>
+                        </button></td>
+                        
+
                  </tr>
                 <select class="js-example-basic-single" id="item_id[]" name="item_id[]" required>
                     @foreach ($items as $item)

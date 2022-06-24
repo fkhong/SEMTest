@@ -86,7 +86,7 @@ Route::get('/staff_home', [Controller::class, 'staffHomeIndex'])->middleware('au
 
 //LOGIN USER ACCESSIBLE ---------------------------------------------------------------------------------------------------
 Route::get('/request', [Controller::class, 'requestCreate'])->middleware('auth');
-Route::get('/request/sort', [Controller::class, 'brandButton'])->middleware('auth');
+Route::get('/request/sort', [Controller::class, 'requestSort'])->middleware('auth');
 Route::get('/request/list', [Controller::class, 'requestList'])->middleware('auth');
 Route::get('/request/list/{id}', [Controller::class, 'requestShow'])->middleware('auth');
 Route::post('/request/list/update/{id}', [Controller::class, 'requestUpdate'])->middleware('auth');
