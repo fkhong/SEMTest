@@ -1,6 +1,5 @@
 @extends ('layouts.normalPage')
 @section('content')
-
     {{-- <style>
         table,
         th,
@@ -45,8 +44,8 @@
 
         </div>
 
-<!--Test Changes-->
-<!--Test Changes 9-->
+        <!--Test Changes-->
+        <!--Test Changes 9-->
         <div class="row pt-3">
             <div class="col-md-12">
                 <table class="table table-bordered" style="width:70%">
@@ -82,6 +81,9 @@
                                 <th>No</th>
                                 <th>order_qty</th>
                                 <th>item_id</th>
+                                <th>item_name</th>
+
+
                                 <th>item_price</th>
                                 <th>total_price</th>
                                 <th>vendor_company</th>
@@ -91,6 +93,9 @@
                                     <td>{{ $a++ }}</td>
                                     <td>{{ $deta->order_qty }}</td>
                                     <td>{{ $deta->item_id }}</td>
+                                    <td>{{ $deta->item_name }}</td>
+
+
                                     <td>{{ $deta->item_price }}</td>
                                     <td>{{ $deta->item_total_price }}</td>
                                     <td>{{ $deta->vendor_company }}</td>
@@ -116,11 +121,4 @@
     </div>
     </div>
     </div>
-
-
-
-
-
-
-
 @endsection
