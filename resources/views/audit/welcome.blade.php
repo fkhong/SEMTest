@@ -1,7 +1,5 @@
 @extends ('layouts.normalPage')
 @section('content')
-
-
     <!DOCTYPE html>
     <html>
     <style>
@@ -13,7 +11,6 @@
             border-collapse: collapse;
             style="border-collapse:collapse;">
         }
-
     </style>
 
     <body>
@@ -29,7 +26,11 @@
                             <th>Audit Report Number</th>
                             <th>Months</th>
                             <th> Year</th>
+                            <th> Update </th>
+                            <th> Delete</th>
+
                             <th> Action</th>
+
                         </tr>
                     </thead>
                     <tbody>
@@ -39,6 +40,16 @@
                                 <td scope="col">{{ $Audits->audit_id }}</td>
                                 <td scope="col">{{ $Audits->months }}</td>
                                 <td scope="col">{{ $Audits->year }}</td>
+
+                                <td scope="col">
+                                    <a href="{{ url('edit-audit/' . $Audits->audit_id) }}"
+                                        class="btn btn-sm bg-success-light me-2"> <i class="far fa-edit me-1"></i> Edit</a>
+                                </td>
+                                <td scope="col">
+                                    <a href="{{ url('del_audit/' . $Audits->audit_id) }}"
+                                        class="glyphicon glyphicon-trash"> <i class="glyphicon glyphicon-trash"></i>
+                                        Delete</a>
+                                </td>
                                 <td scope="col">
                                     <a href="auditreport/view/{{ $Audits->audit_id }}"><i class="fas fa-eye"></i></a>
                                 </td>

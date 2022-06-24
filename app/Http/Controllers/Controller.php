@@ -478,7 +478,7 @@ class Controller extends BaseController
 
     public function auditShow($id)
     {
-        $deta = DB::table('audits')->join('audit_details', 'audits.audit_id', '=', 'audit_details.audit_id')->join('orders', 'audit_details.order_id', '=', 'orders.order_id')->join('order_details', 'orders.order_id', '=', 'order_details.order_id')->join('items', 'order_details.item_id', '=', 'items.item_id')->join('vendors', 'items.vendor_id', '=', 'vendors.vendor_id')->select('orders.order_id', 'orders.total_price', 'order_details.order_qty', 'order_details.item_total_price', 'items.item_id', 'items.item_price', 'vendors.vendor_company', 'items.item_id')->where('audits.audit_id', '=', $id)->get();
+        $deta = DB::table('audits')->join('audit_details', 'audits.audit_id', '=', 'audit_details.audit_id')->join('orders', 'audit_details.order_id', '=', 'orders.order_id')->join('order_details', 'orders.order_id', '=', 'order_details.order_id')->join('items', 'order_details.item_id', '=', 'items.item_id')->join('vendors', 'items.vendor_id', '=', 'vendors.vendor_id')->select('items.item_name','orders.order_id', 'orders.total_price', 'order_details.order_qty', 'order_details.item_total_price', 'items.item_id', 'items.item_price', 'vendors.vendor_company', 'items.item_id')->where('audits.audit_id', '=', $id)->get();
 
         $details = DB::table('audits')->join('audit_details', 'audits.audit_id', '=', 'audit_details.audit_id')->join('orders', 'audit_details.order_id', '=', 'orders.order_id')->select('audits.audit_id', 'orders.order_id', 'orders.staff_id')->where('audits.audit_id', '=', $id)->get();
         $a = 1;
@@ -486,5 +486,33 @@ class Controller extends BaseController
         return view('audit.auditdetail', [
             'auditDetails' => $details, 'detaa' => $deta, 'a' => $a
         ]);
+    }
+    public function delete_audit($audit_id){
+
+
+        // $delt_audit = Audits::where('audit_id', $audit_id)->delete();
+    // $delt_audit = Audit_details::where('audit_id', $audit_id)->delete();
+
+    DB::delete('delete from audits where audit_id = ?',[$audit_id]);
+    return back();
+
+
+
+}
+public function edit($audit_id)
+    {
+        $audits = Audits::find($audit_id);
+        return view('audit.edit', compact('audits'));
+    }
+    public function update(Request $request, $audit_id)
+    {
+
+        // dd($request->all());
+        $audit_update = Audits::find($audit_id);
+        $audit_update->months = $request->input('months');
+        $audit_update->year = $request->input('year');
+
+        $audit_update->update();
+        return redirect('auditreport')->with('status','Student Updated Successfully');
     }
 }
